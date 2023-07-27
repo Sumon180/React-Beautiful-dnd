@@ -16,6 +16,7 @@ const Incorporate = () => {
         uuid: "52f9df20-9393-4c4d-b72c-7bfa4398a4477",
         title: "What is Lorem Ipsum?",
         subtitle: "Lorem Ipsum is simply dummy",
+        cardColor: "bg-rose-300",
         updatedAt: "6 days ago",
       },
       {
@@ -23,6 +24,7 @@ const Incorporate = () => {
         uuid: "52f9df20-9393-4c4d-b72c-7bfa4398a448",
         title: "Why do we use it?",
         subtitle: "The point of using at its layout",
+        cardColor: "bg-rose-300",
         updatedAt: "2 days ago",
       },
       {
@@ -30,6 +32,7 @@ const Incorporate = () => {
         uuid: "52f9df20-9393-4c4d-b72c-7bfa4398a449",
         title: "Where does it come from?",
         subtitle: "Contrary to popular belief, Lorem Ipsum is not simply",
+        cardColor: "bg-rose-300",
         updatedAt: "3 days ago",
       },
     ],
@@ -40,6 +43,7 @@ const Incorporate = () => {
         uuid: "52f9df20-9393-4c4d-b72c-7bfa4398a450",
         title: "Where can I get some?",
         subtitle: "There are many variations",
+        cardColor: "bg-yellow-300",
         updatedAt: "6 days ago",
       },
       {
@@ -47,6 +51,7 @@ const Incorporate = () => {
         uuid: "52f9df20-9393-4c4d-b72c-7bfa4398a451",
         title: "Morbi sagittis tellus a efficitur",
         subtitle: "Etiam mollis eros eget mi.",
+        cardColor: "bg-yellow-300",
         updatedAt: "2 days ago",
       },
     ],
@@ -56,6 +61,7 @@ const Incorporate = () => {
         uuid: "52f9df20-9393-4c4d-b72c-7bfa4398a460",
         title: "Where can I get some?",
         subtitle: "There are many variations",
+        cardColor: "bg-green-300",
         updatedAt: "6 days ago",
       },
       {
@@ -63,6 +69,7 @@ const Incorporate = () => {
         uuid: "52f9df20-9393-4c4d-b72c-7bfa4398a461",
         title: "Morbi sagittis tellus a efficitur",
         subtitle: "Etiam mollis eros eget mi.",
+        cardColor: "bg-green-300",
         updatedAt: "2 days ago",
       },
       {
@@ -70,6 +77,7 @@ const Incorporate = () => {
         uuid: "52f9df20-9393-4c4d-b72c-7bfa4398a471",
         title: "Morbi sagittis tellus a efficitur",
         subtitle: "Etiam mollis eros eget mi.",
+        cardColor: "bg-green-300",
         updatedAt: "2 days ago",
       },
     ],
@@ -111,16 +119,20 @@ const Incorporate = () => {
     setItems(listCopy);
   };
 
-  const section1Color = "bg-rose-500"
-  const section2Color = "bg-yellow-500"
-  const section3Color = "bg-green-500"
+  const section1Color = "bg-rose-500";
+  const section2Color = "bg-yellow-500";
+  const section3Color = "bg-green-500";
 
   return (
     <>
       <DragDropContext onDragEnd={onDragEnd}>
         <div className="grid grid-cols-2 w-full p-12">
           <div className="">
-            <List title="Section-1" section1Color={section1Color} name="available">
+            <List
+              title="Section-1"
+              sectionColor={section1Color}
+              name="available"
+            >
               {items.available.map((item, index) => (
                 <Draggable
                   key={item.id}
@@ -146,7 +158,11 @@ const Incorporate = () => {
             </List>
           </div>
           <div className="">
-            <List title="Section-2" section1Color={section2Color} name="assigned">
+            <List
+              title="Section-2"
+              sectionColor={section2Color}
+              name="assigned"
+            >
               {items.assigned.map((item, index) => (
                 <Draggable
                   draggableId={item.uuid + ""}
@@ -167,7 +183,7 @@ const Incorporate = () => {
             </List>
           </div>
           <div className="col-span-2">
-            <List title="Section-3" section1Color={section3Color} name="tested">
+            <List title="Section-3" sectionColor={section3Color} name="tested">
               {items.tested.map((item, index) => (
                 <Draggable
                   draggableId={item.uuid + ""}

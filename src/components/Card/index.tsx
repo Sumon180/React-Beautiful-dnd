@@ -7,6 +7,7 @@ type Props = {
     uuid: string;
     title: string;
     subtitle: string;
+    cardColor: string;
     updatedAt: string;
   };
 };
@@ -14,7 +15,7 @@ type Props = {
 const Card = ({ data }: Props) => {
   return (
     <div className="shadow-lg flex w-full cursor-pointer">
-      <div className="rounded-l-md p-5 w-36 bg-blue-200">
+      <div className={`rounded-l-md p-5 w-36 ${data.cardColor}`}>
         <img src="./card.svg" alt="Ícone padrão de item do card" />
       </div>
 
