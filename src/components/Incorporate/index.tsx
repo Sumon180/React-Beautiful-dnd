@@ -50,6 +50,29 @@ const Incorporate = () => {
         updatedAt: "2 days ago",
       },
     ],
+    tested: [
+      {
+        id: 7,
+        uuid: "52f9df20-9393-4c4d-b72c-7bfa4398a460",
+        title: "Where can I get some?",
+        subtitle: "There are many variations",
+        updatedAt: "6 days ago",
+      },
+      {
+        id: 8,
+        uuid: "52f9df20-9393-4c4d-b72c-7bfa4398a461",
+        title: "Morbi sagittis tellus a efficitur",
+        subtitle: "Etiam mollis eros eget mi.",
+        updatedAt: "2 days ago",
+      },
+      {
+        id: 9,
+        uuid: "52f9df20-9393-4c4d-b72c-7bfa4398a471",
+        title: "Morbi sagittis tellus a efficitur",
+        subtitle: "Etiam mollis eros eget mi.",
+        updatedAt: "2 days ago",
+      },
+    ],
   };
 
   const [items, setItems] = useState(itemsNormal);
@@ -88,12 +111,16 @@ const Incorporate = () => {
     setItems(listCopy);
   };
 
+  const section1Color = "bg-rose-500"
+  const section2Color = "bg-yellow-500"
+  const section3Color = "bg-green-500"
+
   return (
     <>
       <DragDropContext onDragEnd={onDragEnd}>
-        <div className="grid grid-cols-2 p-12">
+        <div className="grid grid-cols-2 w-full p-12">
           <div className="">
-            <List title="Disponíveis" onDragEnd={onDragEnd} name="available">
+            <List title="Section-1" section1Color={section1Color} name="available">
               {items.available.map((item, index) => (
                 <Draggable
                   key={item.id}
@@ -119,9 +146,13 @@ const Incorporate = () => {
             </List>
           </div>
           <div className="">
-            <List title="Atribuídos" onDragEnd={onDragEnd} name="assigned">
+            <List title="Section-2" section1Color={section2Color} name="assigned">
               {items.assigned.map((item, index) => (
-                <Draggable draggableId={item.uuid} index={index} key={item.id}>
+                <Draggable
+                  draggableId={item.uuid + ""}
+                  index={index}
+                  key={item.id}
+                >
                   {(provided, snapshot) => (
                     <div
                       ref={provided.innerRef}
@@ -136,9 +167,13 @@ const Incorporate = () => {
             </List>
           </div>
           <div className="col-span-2">
-            <List title="Atribuídos" onDragEnd={onDragEnd} name="assigned">
-              {items.assigned.map((item, index) => (
-                <Draggable draggableId={item.uuid} index={index} key={item.id}>
+            <List title="Section-3" section1Color={section3Color} name="tested">
+              {items.tested.map((item, index) => (
+                <Draggable
+                  draggableId={item.uuid + ""}
+                  index={index}
+                  key={item.id}
+                >
                   {(provided, snapshot) => (
                     <div
                       ref={provided.innerRef}

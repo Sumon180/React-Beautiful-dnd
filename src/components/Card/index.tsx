@@ -1,7 +1,7 @@
-import React from "react";
+import React, { ReactNode } from "react";
 
 type Props = {
-  children?: React.ReactNode;
+  children?: ReactNode;
   data: {
     id: number;
     uuid: string;
